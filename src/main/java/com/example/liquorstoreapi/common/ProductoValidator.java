@@ -1,8 +1,6 @@
-package common;
+package com.example.liquorstoreapi.common;
 
-import dto.ProductoRequest;
-import exception.BadResourceRequestException;
-import lombok.ToString;
+import com.example.liquorstoreapi.dto.ProductoRequest;
 
 public class ProductoValidator {
     public static boolean validateProducto(ProductoRequest producto) {

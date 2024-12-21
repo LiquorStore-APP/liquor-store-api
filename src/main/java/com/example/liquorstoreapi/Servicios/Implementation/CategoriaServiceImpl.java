@@ -1,16 +1,17 @@
-package Servicios;
+package com.example.liquorstoreapi.Servicios.Implementation;
 
-import Clases.Categoria;
-import Repositorios.CategoriaRepository;
-import dto.CategoriaRequest;
-import exception.ResourceNotFoundException;
+import com.example.liquorstoreapi.Clases.Categoria;
+import com.example.liquorstoreapi.Repositorios.CategoriaRepository;
+import com.example.liquorstoreapi.Servicios.CategoriaService;
+import com.example.liquorstoreapi.dto.CategoriaRequest;
+import com.example.liquorstoreapi.exception.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class CategoriaService {
+public class CategoriaServiceImpl implements CategoriaService {
     @Autowired
     private CategoriaRepository categoriaRepository;
 
@@ -30,7 +31,7 @@ public class CategoriaService {
         return categoria;
     }
 
-    private Categoria initCategoria(CategoriaRequest categoriaRequest) {
+    public Categoria initCategoria(CategoriaRequest categoriaRequest) {
         Categoria categoria = new Categoria();
 
         categoria.setNombreCategoria(categoriaRequest.getNombreCategoria());

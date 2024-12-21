@@ -1,23 +1,22 @@
-package Servicios;
+package com.example.liquorstoreapi.Servicios.Implementation;
 
-import Clases.Categoria;
-import Clases.Producto;
-import Repositorios.ProductoRepository;
-import common.ProductoValidator;
-import dto.ProductoRequest;
+import com.example.liquorstoreapi.Clases.Categoria;
+import com.example.liquorstoreapi.Clases.Producto;
+import com.example.liquorstoreapi.Repositorios.ProductoRepository;
+import com.example.liquorstoreapi.Servicios.CategoriaService;
+import com.example.liquorstoreapi.Servicios.ProductoService;
+import com.example.liquorstoreapi.dto.ProductoRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
-public class ProductoService {
+public class ProductoServiceImpl implements ProductoService {
     @Autowired
     private ProductoRepository productoRepository;
-
     @Autowired
-    private CategoriaService categoriaService;
+    private CategoriaService categoriaServiceImpl;
 
     public Producto createProducto(ProductoRequest productoRequest) {
         Producto newProducto = initProducto(productoRequest);
@@ -28,10 +27,10 @@ public class ProductoService {
         return productos;
     }
 
-    private Producto initProducto(ProductoRequest productoRequest) {
+    public Producto initProducto(ProductoRequest productoRequest) {
         //ProductoValidator.validateProducto(productoRequest);
 
-        Categoria categoria = categoriaService.findCategoriaById(productoRequest.getIdCategoriaProductos());
+        Categoria categoria = categoriaServiceImpl.findCategoriaById(productoRequest.getIdCategoriaProductos());
 
         Producto producto = new Producto();
         producto.setNombreProducto(productoRequest.getNombreProducto());

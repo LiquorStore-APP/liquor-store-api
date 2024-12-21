@@ -1,4 +1,4 @@
-package Clases;
+package com.example.liquorstoreapi.Clases;
 
 import jakarta.persistence.*;
 import lombok.Data;

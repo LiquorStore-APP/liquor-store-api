@@ -1,8 +1,7 @@
-package Clases;
+package com.example.liquorstoreapi.Clases;
 
 import jakarta.persistence.*;
 import lombok.Data;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 

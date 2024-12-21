@@ -1,10 +1,13 @@
-package common;
+package com.example.liquorstoreapi.common;
 
-import Clases.Categoria;
-import Clases.Producto;
-import dto.CategoriaResponse;
-import dto.ProductoResponse;
+import com.example.liquorstoreapi.Clases.Categoria;
+import com.example.liquorstoreapi.Clases.Producto;
+import com.example.liquorstoreapi.dto.CategoriaResponse;
+import com.example.liquorstoreapi.dto.ProductoResponse;
 import org.modelmapper.ModelMapper;
+import org.modelmapper.PropertyMap;
+import org.modelmapper.convention.MatchingStrategies;
+import org.modelmapper.spi.MatchingStrategy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -15,6 +18,18 @@ import java.util.stream.Collectors;
 public class EntityDtoConverter {
     @Autowired
     private ModelMapper modelMapper;
+
+    EntityDtoConverter() {
+        this.modelMapper = new ModelMapper();
+        this.modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
+        modelMapper.addMappings(new PropertyMap<Producto, ProductoResponse>() {
+            @Override
+            protected void configure() {
+                map(source.getIdCategoriaProductos().getNombreCategoria(), destination.getNombreCategoriaProducto());}
+        });
+    }
+
+
     public ProductoResponse convertEntityToDtoProducto(Producto producto) {
         return modelMapper.map(producto, ProductoResponse.class);
     }

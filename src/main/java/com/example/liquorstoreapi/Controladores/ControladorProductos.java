@@ -1,19 +1,20 @@
-package Controladores;
+package com.example.liquorstoreapi.Controladores;
 
-import Clases.Producto;
-import Servicios.ProductoService;
-import common.EntityDtoConverter;
-import dto.ProductoRequest;
-import dto.ProductoResponse;
+import com.example.liquorstoreapi.Clases.Producto;
+import com.example.liquorstoreapi.Servicios.ProductoService;
+import com.example.liquorstoreapi.common.EntityDtoConverter;
+import com.example.liquorstoreapi.dto.ProductoRequest;
+import com.example.liquorstoreapi.dto.ProductoResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/products/")
+@RequestMapping("/products")
 public class ControladorProductos {
     @Autowired
     private ProductoService productoService;
@@ -33,4 +34,18 @@ public class ControladorProductos {
                 entityDtoConverter.convertEntityToDtoProducto(productos),
                 HttpStatus.OK);
     }
+
+
+//    public ProductoResponse convertToProductoResponse(Producto producto) {
+//        ProductoResponse response = new ProductoResponse();
+//        response.setIdProducto(producto.getIdProducto());
+//        response.setNombreProducto(producto.getNombreProducto());
+//        response.setCostoProducto(producto.getCostoProducto());
+//        response.setPrecioProducto(producto.getPrecioProducto());
+//        response.setIdCategoriaProductos(producto.getIdCategoriaProductos().getIdCategoria());
+//        response.setStockProducto(producto.getStockProducto());
+//        response.setRutaimagenProducto(producto.getRutaimagenProducto());
+//
+//        return response;
+//    }
 }

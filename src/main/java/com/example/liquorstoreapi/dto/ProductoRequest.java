@@ -1,8 +1,7 @@
-package dto;
+package com.example.liquorstoreapi.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Data

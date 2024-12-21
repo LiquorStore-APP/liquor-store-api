@@ -1,10 +1,9 @@
-package Repositorios;
+package com.example.liquorstoreapi.Repositorios;
 
-import Clases.Categoria;
+import com.example.liquorstoreapi.Clases.Categoria;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
 public interface CategoriaRepository extends JpaRepository<Categoria, Integer> {
-    Categoria findCategoriaById(int id);
 }

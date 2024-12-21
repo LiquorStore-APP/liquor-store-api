@@ -1,6 +1,6 @@
-package Repositorios;
+package com.example.liquorstoreapi.Repositorios;
 
-import Clases.Producto;
+import com.example.liquorstoreapi.Clases.Producto;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
