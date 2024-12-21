@@ -14,4 +14,5 @@ public class ProductoResponse {
     private String nombreCategoriaProducto;
     private int stockProducto;
     private String rutaimagenProducto;
+    private String image;
 }

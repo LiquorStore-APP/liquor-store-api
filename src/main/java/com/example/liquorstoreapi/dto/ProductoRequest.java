@@ -14,4 +14,5 @@ public class ProductoRequest {
     private int idCategoriaProductos;
     private int stockProducto;
     private String rutaimagenProducto;
+    private String image;
 }
