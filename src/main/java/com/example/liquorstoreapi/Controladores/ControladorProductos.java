@@ -6,6 +6,7 @@ import com.example.liquorstoreapi.common.EntityDtoConverter;
 import com.example.liquorstoreapi.dto.ProductoRequest;
 import com.example.liquorstoreapi.dto.ProductoResponse;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -35,17 +36,9 @@ public class ControladorProductos {
                 HttpStatus.OK);
     }
 
-
-//    public ProductoResponse convertToProductoResponse(Producto producto) {
-//        ProductoResponse response = new ProductoResponse();
-//        response.setIdProducto(producto.getIdProducto());
-//        response.setNombreProducto(producto.getNombreProducto());
-//        response.setCostoProducto(producto.getCostoProducto());
-//        response.setPrecioProducto(producto.getPrecioProducto());
-//        response.setIdCategoriaProductos(producto.getIdCategoriaProductos().getIdCategoria());
-//        response.setStockProducto(producto.getStockProducto());
-//        response.setRutaimagenProducto(producto.getRutaimagenProducto());
-//
-//        return response;
-//    }
+    @DeleteMapping("{productId}")
+    public ResponseEntity<ProductoResponse> deleteById(@PathVariable int productId) throws Exception{
+        productoService.deleteProductById(productId);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 }
