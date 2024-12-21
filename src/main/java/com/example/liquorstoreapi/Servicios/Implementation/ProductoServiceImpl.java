@@ -28,10 +28,7 @@ public class ProductoServiceImpl implements ProductoService {
     }
 
     public Producto initProducto(ProductoRequest productoRequest) {
-        //ProductoValidator.validateProducto(productoRequest);
-
         Categoria categoria = categoriaServiceImpl.findCategoriaById(productoRequest.getIdCategoriaProductos());
-
         Producto producto = new Producto();
         producto.setNombreProducto(productoRequest.getNombreProducto());
         producto.setCostoProducto(productoRequest.getCostoProducto());
@@ -39,6 +36,7 @@ public class ProductoServiceImpl implements ProductoService {
         producto.setIdCategoriaProductos(categoria);
         producto.setStockProducto(productoRequest.getStockProducto());
         producto.setRutaimagenProducto(productoRequest.getRutaimagenProducto());
+        producto.setImage(productoRequest.getImage());
         return producto;
     }
 

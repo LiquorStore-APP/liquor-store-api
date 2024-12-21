@@ -25,4 +25,7 @@ public class Producto {
 
     public int stockProducto;
     public String rutaimagenProducto;
+
+    @Lob
+    private String image;
 }
