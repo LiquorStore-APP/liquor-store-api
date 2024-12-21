@@ -18,15 +18,18 @@ public class ProductoServiceImpl implements ProductoService {
     @Autowired
     private CategoriaService categoriaServiceImpl;
 
+    @Override
     public Producto createProducto(ProductoRequest productoRequest) {
         Producto newProducto = initProducto(productoRequest);
         return productoRepository.save(newProducto);
     }
+    @Override
     public List<Producto> findAllProducto() {
         List<Producto> productos = productoRepository.findAll();
         return productos;
     }
 
+    @Override
     public Producto initProducto(ProductoRequest productoRequest) {
         Categoria categoria = categoriaServiceImpl.findCategoriaById(productoRequest.getIdCategoriaProductos());
         Producto producto = new Producto();
@@ -38,6 +41,11 @@ public class ProductoServiceImpl implements ProductoService {
         producto.setRutaimagenProducto(productoRequest.getRutaimagenProducto());
         producto.setImage(productoRequest.getImage());
         return producto;
+    }
+
+    @Override
+    public void deleteProductById(int productId) {
+        productoRepository.deleteById(productId);
     }
 
 }

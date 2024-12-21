@@ -9,4 +9,6 @@ public interface ProductoService {
     Producto createProducto(ProductoRequest productoRequest);
     List<Producto> findAllProducto();
     Producto initProducto(ProductoRequest productoRequest);
+
+    void deleteProductById(int productId);
 }
