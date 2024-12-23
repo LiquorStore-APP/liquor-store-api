@@ -18,5 +18,5 @@ public class DetalleVenta {
     public int cantidadDetalleVenta;
     public double precioDetalleVenta;
     public double subutilidadDetalleVenta;
-    public double subTotalDetalleVenta ;
+    public double subTotalDetalleVenta;
 }

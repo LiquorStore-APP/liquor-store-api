@@ -11,4 +11,5 @@ public interface ProductoService {
     Producto initProducto(ProductoRequest productoRequest);
 
     void deleteProductById(int productId);
+    List<Producto> findProductosByDescription(String desc);
 }

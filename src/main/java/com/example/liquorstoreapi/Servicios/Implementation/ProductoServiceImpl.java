@@ -16,7 +16,7 @@ public class ProductoServiceImpl implements ProductoService {
     @Autowired
     private ProductoRepository productoRepository;
     @Autowired
-    private CategoriaService categoriaServiceImpl;
+    private CategoriaService categoriaService;
 
     @Override
     public Producto createProducto(ProductoRequest productoRequest) {
@@ -31,7 +31,7 @@ public class ProductoServiceImpl implements ProductoService {
 
     @Override
     public Producto initProducto(ProductoRequest productoRequest) {
-        Categoria categoria = categoriaServiceImpl.findCategoriaById(productoRequest.getIdCategoriaProductos());
+        Categoria categoria = categoriaService.findCategoriaById(productoRequest.getIdCategoriaProductos());
         Producto producto = new Producto();
         producto.setNombreProducto(productoRequest.getNombreProducto());
         producto.setCostoProducto(productoRequest.getCostoProducto());
@@ -46,6 +46,12 @@ public class ProductoServiceImpl implements ProductoService {
     @Override
     public void deleteProductById(int productId) {
         productoRepository.deleteById(productId);
+    }
+
+    @Override
+    public List<Producto> findProductosByDescription(String desc){
+        List<Producto> productos = productoRepository.findByDescrip(desc);
+        return productos;
     }
 
 }
