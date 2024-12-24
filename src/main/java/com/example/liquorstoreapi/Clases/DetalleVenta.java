@@ -1,5 +1,6 @@
 package com.example.liquorstoreapi.Clases;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -13,10 +14,12 @@ public class DetalleVenta {
 
     @ManyToOne()
     @JoinColumn(name = "idVenta")
-    public Ventas idVentaDetalleVenta;
-    public String ProductoDetalleVenta;
+    @JsonIgnore
+    public Venta venta;
+
+    public String productoDetalleVenta;
     public int cantidadDetalleVenta;
     public double precioDetalleVenta;
     public double subutilidadDetalleVenta;
-    public double subTotalDetalleVenta ;
+    public double subTotalDetalleVenta;
 }

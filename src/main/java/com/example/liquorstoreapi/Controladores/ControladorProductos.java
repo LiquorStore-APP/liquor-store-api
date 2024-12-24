@@ -41,4 +41,12 @@ public class ControladorProductos {
         productoService.deleteProductById(productId);
         return new ResponseEntity<>(HttpStatus.OK);
     }
+
+    @GetMapping("/buscar/{desc}")
+    public ResponseEntity<List<ProductoResponse>> findAllByDescription(@PathVariable String desc) throws Exception{
+        List<Producto> productos = productoService.findProductosByDescription(desc);
+        return new ResponseEntity<List<ProductoResponse>>(
+                entityDtoConverter.convertEntityToDtoProducto(productos),
+                HttpStatus.OK);
+    }
 }
